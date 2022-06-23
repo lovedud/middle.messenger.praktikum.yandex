@@ -1,0 +1,17 @@
+<div class="box-container">
+    <p>{{title}}</p>
+    <div class="inputs-container">
+        {{#each inputs}}
+            <div class="text-field text-field_floating">
+                <input class="input" placeholder={{placeholder}} />
+                <label class="label">{{placeholder}}</label>
+            </div>
+        {{/each}}
+    </div>
+    <div>
+        <button class="button">{{buttonText}}</button>
+        <a class="link">{{linkText}}</a>
+    </div>
+
+</div>
+

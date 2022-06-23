@@ -1,0 +1,126 @@
+@background-color: #ffffff;
+@shadow-color: rgba(34, 60, 80, 0.2);
+@button-link-color: #3369F3;
+
+.box-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 350px;
+  height: 460px;
+  border-radius: 12px;
+  box-shadow: 0px 5px 10px 2px @shadow-color;
+
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 20px;
+
+  padding: 20px;
+  margin: auto;
+  margin-top: 20vh;
+
+
+  .inputs-container {
+    display: flex;
+    flex-direction: column;
+    font-weight: 400;
+    font-size: 14px;
+
+    .label {
+      display: block;
+      margin-bottom: 0.25rem;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      padding: 1rem .75rem;
+      pointer-events: none;
+      border: 1px solid transparent;
+      transform-origin: 0 0;
+      transition: color .15s ease-in-out, transform .15s ease-in-out;
+    }
+
+    .input {
+      display: block;
+      width: 100%;
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 400;
+      color: #363b40;
+      background-clip: padding-box;
+      transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      border: none;
+      border-bottom: 1px solid #bdbdbd;
+      border-radius: 0;
+      border-top-left-radius: 0.25rem;
+      border-top-right-radius: 0.25rem;
+      height: calc(2.5rem + 2px);
+      line-height: 1.25;
+      padding: 1rem 0.75rem;
+      background-color: #ffffff;
+    }
+
+    .input::placeholder {
+      color: transparent;
+      opacity: 0.4;
+    }
+
+    .input:focus {
+      color: #212529;
+      border-color: #bdbdbd;
+      outline: 0;
+      border-bottom: 1px solid #03a9f4;
+      box-shadow: none;
+      background-color: #ffffff;
+    }
+
+    .input:focus, .input:not(:placeholder-shown) {
+      padding-top: 1.625rem;
+      padding-bottom: .625rem;
+      border-bottom: 1px solid #03a9f4;
+    }
+
+    .input:focus~.label,
+    .input:not(:placeholder-shown)~.label {
+      transform: scale(.85) translateY(-.75rem) translateX(.15rem);
+      color: #03a9f4;
+    }
+
+    .text-field_floating {
+      position: relative;
+      margin-bottom: 15px;
+    }
+  }
+
+
+  .button {
+    appearance: none;
+    border: 0;
+    border-radius: 5px;
+    background: @button-link-color;
+    color: #fff;
+    padding: 8px 16px;
+    font-size: 16px;
+    width: 100%;
+    margin-bottom: 16px;
+  }
+
+  .button:hover {
+    background-color: #33587f;
+  }
+
+  .link {
+    display: block;
+    font-size: 16px;
+    font-weight: 500;
+    color: @button-link-color;
+  }
+}
+
