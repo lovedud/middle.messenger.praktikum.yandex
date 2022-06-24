@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "---",
   "main": "index.js",
+  "targets": {
+    "main": false
+  },
   "scripts": {
     "start": "parcel static/index.html -p 3000",
     "dev": "parcel static/index.html -p 3000 --open",
