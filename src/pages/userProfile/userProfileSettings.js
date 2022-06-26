@@ -1,9 +1,11 @@
-import box from '../../components/box/box.hbs';
+import box from "../../components/box/box.hbs";
+import avatar from '../../../static/images/avatar.png';
 
-export default function signUp() {
+export default function userProfileSettings() {
 	return box({
-		title: 'Регистрация',
-		buttonText: 'Завести аккаунт',
+		title: 'Настройки пользователя',
+		buttonText: 'Сохранить',
+		image: avatar,
 		inputs:
 			[
 				{
@@ -43,8 +45,8 @@ export default function signUp() {
 				},
 			],
 		link: {
-			linkText: 'Войти',
-			url: '/sign-in'
+			linkText: 'Отмена',
+			url: '/sign-up'
 		}
 	});
 };

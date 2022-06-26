@@ -1,0 +1,43 @@
+@import "../../styles/variables";
+
+.error {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+  color: @link-color;
+
+  &__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__info {
+    margin-left: 1rem;
+  }
+
+  &__header {
+    margin: 0;
+    text-align: left;
+    font-size: 5rem;
+    font-weight: lighter;
+  }
+
+  &__desc {
+    font-size: 2rem;
+    font-weight: lighter;
+    margin: 0 0 1rem;
+  }
+
+  &__link {
+    float: left;
+    color: @link-color;
+    text-decoration: none;
+    font-size: 1.2rem;
+
+    &:hover {
+      opacity: 0.3;
+    }
+  }
+}

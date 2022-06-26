@@ -1,21 +1,24 @@
 <div class="box-container">
     <p>{{title}}</p>
-    <div class="inputs-container">
+    {{#if image}}
+            <img class="box-container__image" src="{{image}}"/>
+    {{/if}}
+    <div class="box-container__inputs">
         {{#each inputs}}
-            <div class="text-field text-field_floating">
+            <div class="inputs-container">
                 <input
-                        class="input"
+                        class="inputs-container__input"
                         type={{type}}
                         name={{name}}
                         placeholder={{placeholder}}
                 />
-                <label class="label">{{placeholder}}</label>
+                <label class="inputs-container__label">{{placeholder}}</label>
             </div>
         {{/each}}
     </div>
     <div>
-        <button type="submit" class="button">{{buttonText}}</button>
-        <a class="link" href={{link.url}}>{{link.linkText}}</a>
+        <button type="submit" class="box-container__button">{{buttonText}}</button>
+        <a class="box-container__link" href={{link.url}}>{{link.linkText}}</a>
     </div>
 
 </div>
