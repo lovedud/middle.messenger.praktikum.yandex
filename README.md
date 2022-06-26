@@ -1,4 +1,4 @@
-PR1 https://github.com/lovedud/middle.messenger.praktikum.yandex/pull/6
+PR1 https://github.com/lovedud/middle.messenger.praktikum.yandex/pull/7
 
 Команды
 
