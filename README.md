@@ -1,5 +1,3 @@
-PR1 https://github.com/lovedud/middle.messenger.praktikum.yandex/pull/7
-
 Команды
 
 npm start: Локальная сборка и запуск на 3000 порту

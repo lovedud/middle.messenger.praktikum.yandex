@@ -1,0 +1,24 @@
+<div class="box-container">
+    <p>{{title}}</p>
+    {{#if image}}
+            <img class="box-container__image" src="{{image}}"/>
+    {{/if}}
+    <div class="box-container__inputs">
+        {{#each inputs}}
+            <div class="inputs-container">
+                <input
+                        class="inputs-container__input"
+                        type={{type}}
+                        name={{name}}
+                        placeholder={{placeholder}}
+                />
+                <label class="inputs-container__label">{{placeholder}}</label>
+            </div>
+        {{/each}}
+    </div>
+    <div>
+        <button type="submit" class="box-container__button">{{buttonText}}</button>
+        <a class="box-container__link" href={{link.url}}>{{link.linkText}}</a>
+    </div>
+
+</div>
