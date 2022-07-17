@@ -1,0 +1,39 @@
+@import "../../styles/variables";
+
+.error {
+  &__body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    width: 400px;
+    min-height: 400px;
+    margin: 0 auto;
+    margin-top: 15vh;
+    box-sizing: border-box;
+    border-radius: 12px;
+    box-shadow: 0px 5px 10px 2px @shadow-color;
+  }
+
+  &__title {
+    font-size: 30pt;
+    padding-bottom: 15px;
+  }
+
+  &__message {
+    padding-bottom: 45px;
+  }
+
+  &__link a {
+    font-size: 10pt;
+    margin-top: 1.5rem;
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    color: @link-color;
+
+    &:hover {
+      opacity: 0.3;
+    }
+  }
+}

@@ -1,0 +1,107 @@
+@color-inputbckg: rgb(220, 220, 220);
+@color-background-left: rgb(250, 250, 250);
+@color-background-right: rgb(255, 255, 255);
+
+.main {
+
+  &__body {
+    display: flex;
+    flex-direction: row;
+    height: 98vh;
+  }
+  &__left-area {
+    display: flex;
+    border-right-width: 1px;
+    border-right-style: solid;
+    color: rgb(222, 222, 222);
+    flex-direction: column;
+    width: 400px;
+    background-color: @color-background-left;
+    padding: 5px;
+  }
+  &__left-area-header {
+    height: 80px;
+    border-bottom-width: 0px;
+    border-bottom-style: solid;
+  }
+  &__left-area-content {
+  }
+  &__right-area {
+    display: flex;
+    color: rgb(222, 222, 222);
+    background-color: @color-background-right;
+    flex-direction: column;
+    width: 100%;
+    padding: 5px;
+  }
+  &__right-area-empty {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    color: gray;
+  }
+  &__right-area-header {
+    height: 40px;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    display: flex;
+    flex-direction: column;
+  }
+  &__right-area-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    height: 100%;
+  }
+  &__right-area-footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 40px;
+  }
+
+  .left-area-header__text-field{
+    position: relative;
+  }
+
+  .link-profile {
+    display: flex;
+    margin: 5px 5px;
+    justify-content: right;
+    text-align: right;
+    color: gray;
+    font-size: 0.8rem;
+  }
+
+  .link-profile:hover{
+    color: blue;
+  }
+
+  .main__left-area-header .text-field-input__find{
+    border: none;
+    border-radius: 0.5rem;
+    height: calc(1rem + 15px);
+    width: 100%;
+    margin-top: 10px;
+    text-align: center;
+    line-height: 1.25;
+    background-color: @color-inputbckg;
+  }
+
+  .main__left-area-header .text-field-image__find{
+    display: block;
+    position: absolute;
+    top: 36%;
+    left: calc(50% - 45px);
+    height: 50%;
+    transition: transform .2s ease-in-out;
+  }
+
+  .main__left-area-header .text-field-input__find:focus~.text-field-image__find,
+  .main__left-area-header .text-field-input__find:not(:placeholder-shown)~.text-field-image__find{
+    transform: scale(0);
+  }
+
+}

@@ -1,0 +1,154 @@
+@import "../../styles/variables";
+
+@box-width: 340px;
+@box-height: 460px;
+@border-color: rgb(211, 211, 211);
+@base-color: #3369f3;
+
+
+.login {
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    min-height: 400px;
+    margin: 0 auto;
+    margin-top: 15vh;
+    box-sizing: border-box;
+    border-radius: 12px;
+    box-shadow: 0px 5px 10px 2px @shadow-color;
+
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 20px;
+
+    padding: 20px;
+  }
+  &__header {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+  }
+  &__footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 20px;
+    height: 100%;
+  }
+  &__title {
+    font-size: 20pt;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 70px;
+  }
+  &__field {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+  }
+  &__button-auth {
+    appearance: none;
+    border: 0;
+    border-radius: 5px;
+    background: @button-link-color;
+    color: @background-color;
+    padding: 8px 16px;
+    font-size: 16px;
+    width: 100%;
+    margin-top: 2rem;
+  }
+
+  &__button-auth:hover {
+    background-color: @button-link-color-hover;
+  }
+
+  &__no-account {
+    margin-top: 1.5rem;
+    display: block;
+    font-size: 1rem;
+    text-decoration: none;
+    text-align: center;
+    color: @link-color;
+
+    &:hover {
+      opacity: 0.3;
+    }
+  }
+}
+
+.inputs-container {
+  position: relative;
+  font-weight: 400;
+  font-size: 14px;
+  margin-top: 1.5rem;
+
+  &__label {
+    display: block;
+    margin-bottom: 0.25rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    padding: 1rem .75rem;
+    pointer-events: none;
+    border: 1px solid transparent;
+    transform-origin: 0 0;
+    transition: color .15s ease-in-out, transform .15s ease-in-out;
+  }
+
+  &__input {
+    display: block;
+    width: 100%;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 400;
+    color: @input-color;
+    background-clip: padding-box;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+    border-bottom: 1px solid @border-color;
+    border-radius: 0;
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+    height: calc(2.5rem + 2px);
+    line-height: 1.25;
+    padding: 1rem 0.75rem;
+    background-color: @background-color;
+  }
+
+  &__input::placeholder {
+    color: transparent;
+    opacity: 0.4;
+  }
+
+  &__input:focus {
+    color: @input-focus-color;
+    border-color: @border-color;
+    outline: 0;
+    border-bottom: 1px solid @border-bottom-color;
+    box-shadow: none;
+    background-color: @background-color;
+  }
+
+  &__input:focus, &__input:not(:placeholder-shown) {
+    padding-top: 1.625rem;
+    padding-bottom: .625rem;
+    border-bottom: 1px solid @border-bottom-color;
+  }
+
+  &__input:focus~&__label,
+  &__input:not(:placeholder-shown)~&__label {
+    transform: scale(.85) translateY(-.75rem) translateX(.15rem);
+    color: @border-bottom-color;
+  }
+}

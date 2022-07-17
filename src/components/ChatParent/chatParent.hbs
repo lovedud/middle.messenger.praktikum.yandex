@@ -1,0 +1,15 @@
+{{#if chatId}}
+    <div class="main__right-area-header">
+        {{{chatHead}}}
+    </div>
+    <div class="main__right-area-content">
+        {{{chatBox}}}
+    </div>
+    <div class="main__right-area-footer">
+        {{{chatFooter}}}
+    </div>
+{{else}}
+    <div class="main__right-area-empty">
+        Выберите чат, чтобы отправить сообщение
+    </div>
+{{/if}}

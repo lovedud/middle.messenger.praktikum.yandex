@@ -1,0 +1,29 @@
+{{{break}}}
+<div class="mb-body {{is-active}}">
+    <div class="mb-body__left">
+        <div class="image-user">
+            {{{userImage}}}
+        </div>
+    </div>
+    <div class="mb-body__center">
+        <div class="mb-box-title">
+            {{userName}}
+        </div>
+        <div class="mb-box-text">
+            <strong style="color: black;">Вы: </strong>
+            Изображение
+        </div>
+    </div>
+    <div class="mb-body__right">
+        <div class="mb-box-time">
+            22:05
+        </div>
+        <div style="display: flex; flex-direction: row; justify-content: center;">
+            {{#if numUnreadMessages}}
+                <div class="mb-box-nummessages">
+                    {{numUnreadMessages}}
+                </div>
+            {{/if}}
+        </div>
+    </div>
+</div>

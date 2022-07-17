@@ -1,0 +1,72 @@
+.messagebox{
+  color: black;
+}
+
+.mb-body{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 5px;
+  user-select: none;
+}
+
+.active-true{
+  background-color: #e4edfd;
+}
+
+.active-false{
+  background-color: white;
+}
+
+.mb-body__left{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.mb-body__center{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+  padding: 0px 10px;
+  font-size: small;
+}
+
+.mb-body__right{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.mb-body__left .image-user{
+  border-radius: 50%;
+  height: 5%;
+  width: 40px;
+  height: 40px;
+}
+
+.mb-body__right .mb-box-time{
+  font-size: x-small;
+  margin-bottom: 7px;
+}
+
+.mb-body__right .mb-box-nummessages{
+  line-height: 1.5rem;
+  vertical-align: middle;
+  text-align: center;
+  font-size: smaller;
+  color: white;
+  width: 25px;
+  height: 25px;
+  background-color: #3369f3;
+  border-radius: 50%;
+}
+
+.mb-body__center .mb-box-title{
+  font-weight: bolder;
+}
+
+.mb-body__center .mb-box-text{
+  color: grey;
+}
