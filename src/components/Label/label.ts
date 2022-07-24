@@ -6,8 +6,8 @@ interface LabelProps{
     className?: string,
 }
 
-export class Label extends Block{
-    constructor(props: LabelProps){
+export class Label extends Block<LabelProps>{
+    public constructor(props: LabelProps){
         super( props);
     }
 

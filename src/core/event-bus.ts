@@ -1,40 +1,46 @@
-type Handler = (...args: unknown[]) => void;
+interface IListener {
+    [key: string]: IFunction[];
+}
+interface IFunction {
+    callback: () => void;
+}
 
-export default class EventBus {
+export type Listener<T extends unknown[] = any[]> = (...args: T) => void
 
-    private listeners: Record<string, Array<Handler>>;
+class EventBus<E extends string = string, M extends { [K in E]: unknown[] } = Record<E, any[]>> {
+    private listeners: { [key in E]?: Listener<M[E]>[] } = {}
 
-    constructor() {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    constructor(public listeners?: IListener[] | any) {
         this.listeners = {};
     }
 
-    on(event: string, callback: Handler) {
-        //Код здесь
-        if (!this.listeners[event]) {
-            this.listeners[event] = [];
+    on(event: string, callback: unknown): void {
+        if (this.listeners[event] === null || !this.listeners[event]) {
+            this.listeners[event] = [callback];
+        } else {
+            this.listeners[event].push(callback);
         }
-        this.listeners[event].push(callback);
     }
 
-    off(event: string, callback: Handler) {
-        if (!this.listeners[event]) {
-            //throw new Error(`Нет события: ${event}`);
-            return;
+    off(event: string, callback: () => void): void {
+        if (this.listeners[event] === null || !this.listeners[event]) {
+            throw new Error(`Нет события: ${event}`);
         }
-
         this.listeners[event] = this.listeners[event].filter(
-            listener => listener !== callback
+            (listener: () => void) => listener !== callback
         );
     }
 
-    emit(event: string, ...args: unknown[]) : void {
-        if (!this.listeners[event]) {
-            //throw new Error(`Нет события: ${event}`);
-            return;
+    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+    emit(event: string): void {
+        if (this.listeners[event] === null || !this.listeners[event]) {
+            throw new Error(`Нет события: ${event}`);
         }
-
-        this.listeners[event].forEach(listener => {
-            listener(...args);
+        this.listeners[event].forEach(function (listener: () => void) {
+            listener();
         });
     }
 }
+
+export default EventBus;

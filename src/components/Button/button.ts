@@ -1,9 +1,11 @@
 import Block from "../../core/block";
 import template from "./button.hbs"
+import compile from "../../utils/compile";
 
 interface ButtonProps{
     label: string;
     className: string;
+    pathname?: string;
     events?: {
         click?: (e?: Event) => void
     }
@@ -11,10 +13,10 @@ interface ButtonProps{
 
 export class Button extends Block{
     constructor(props: ButtonProps){
-        super( props);
+        super('div', props);
     }
 
     render() {
-        return this.compile(template, {...this.props});
+        return compile(template, { ...this.props });
     }
 }

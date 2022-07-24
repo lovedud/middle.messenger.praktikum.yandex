@@ -3,7 +3,7 @@ import Block from "../../core/block";
 import template from "./messagebox.hbs";
 
 interface MessageBoxProps{
-    "is-active": string,
+    isActive: string,
     chatId: number,
     break?: Block,
     className?: string,
@@ -15,8 +15,8 @@ interface MessageBoxProps{
     }
 }
 
-export class MessageBox extends Block{
-    constructor(props: MessageBoxProps){
+export class MessageBox extends Block<MessageBoxProps>{
+    public constructor(props: MessageBoxProps){
         super( props);
     }
 

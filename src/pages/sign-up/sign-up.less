@@ -1,47 +1,40 @@
 @import "../../styles/variables";
 
-* {
-  box-sizing: border-box;
-  font-family: Roboto, Arial, sans-serif;
-  font-size: 16px;
+#errorLogin {
+  max-width: 300px;
+  font-size: 10px;
+  font-weight: 400;
+  color: @button-link-color-hover;
 }
 
-.box-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 400px;
-  min-height: 400px;
-  margin: 0 auto;
-  margin-top: 15vh;
-  box-sizing: border-box;
-  border-radius: 12px;
-  box-shadow: 0px 5px 10px 2px @shadow-color;
+.signup {
 
-  font-family: 'Inter', sans-serif;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 20px;
-  line-height: 20px;
-
-  padding: 20px;
-
-  &__image {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-  }
-
-
-  &__inputs {
+  &__body {
     display: flex;
     flex-direction: column;
-    font-weight: 400;
-    font-size: 14px;
-    margin-top: 1.5rem;
-  }
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    min-height: 400px;
+    margin: 0 auto;
+    margin-top: 15vh;
+    box-sizing: border-box;
+    border-radius: 12px;
+    box-shadow: 0px 5px 10px 2px @shadow-color;
 
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 20px;
+
+    padding: 20px;
+  }
+  &__header {
+    display: flex;
+    flex-direction: column;
+    padding: 30px 30px 10px 30px;
+  }
 
   &__button {
     appearance: none;
@@ -75,7 +68,9 @@
 
 .inputs-container {
   position: relative;
-  margin-bottom: 15px;
+  font-weight: 400;
+  font-size: 14px;
+  margin-top: 1.5rem;
 
   &__label {
     display: block;
@@ -140,4 +135,5 @@
     color: @border-bottom-color;
   }
 }
+
 

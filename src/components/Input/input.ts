@@ -1,25 +1,28 @@
 import Block from "../../core/block";
 import template from "./input.hbs"
+import compile from "../../utils/compile";
 
 interface InputProps{
-    value?: string,
+    name?: string,
     className?: string,
-    inputType?: string,
+    type?: string,
     pattern?: string,
-    inputPlaceholder?: string,
+    placeholder?: string,
+    value?: string,
+    disabled?: boolean,
     events?: {
-        click?: (e?: any) => void,
-        input?: (e?: InputEvent) => void,
+        click?: (e?: Event) => void,
+        change?: (e?: InputEvent) => void,
         blur?: (e?: Event) => void,
     }
 }
 
-export class Input extends Block{
-    constructor(props: InputProps){
-        super( props);
+export class Input extends Block<InputProps>{
+    public constructor(props: InputProps){
+        super( 'div', props);
     }
 
     render() {
-        return this.compile(template, {...this.props});
+        return compile(template, {...this.props});
     }
 }

@@ -1,29 +1,17 @@
-<div class="login">
-    <div class="login__body">
-        <div class="login__header">
-            <div class="login__title">
-                Вход
-            </div>
-            <div class="inputs-container">
-                <div class="login__field">
-                    {{{input-login}}}
-                    {{{label-login}}}
-                    {{{login-helper}}}
-                </div>
-                <div class="password__field">
-                    {{{input-password}}}
-                    {{{label-password}}}
-                    {{{password-helper}}}
-                </div>
-            </div>
-        </div>
-        <div class="login__footer">
-            <div>
-                {{{login-button}}}
-            </div>
-            <div class="login__no-account link">
-                {{{link-no-account}}}
-            </div>
-        </div>
+<div class="login__body">
+    <p class="login__header">{{title}}</p>
+    {{#if image}}
+        <img class="box-container__image" src="{{image}}"/>
+    {{/if}}
+    <div>
+        {{{loginInput}}}
+        <div id="errorLogin"></div>
+        {{{passwordInput}}}
+    </div>
+    <div>
+        {{{button}}}
+    </div>
+    <div>
+        {{{link}}}
     </div>
 </div>

@@ -1,23 +1,39 @@
 import "./main.less"
 import template from './main.hbs'
 import Block from "../../core/block";
-import store from "../../core/store"
+import compile from "../../utils/compile";
+import {Link} from "../../components/Link/link";
+import {Input} from "../../components/Input/input";
+import {ChatParent} from "../../components/ChatParent/chatParent";
 
-export default (props: any) : Block => {
-
-    class MainPage extends Block{
-        constructor(props: any) {
-            super(props);
-        }
-
-        render() {
-            return this.compile(template, {...this.props});
-        }
+export default class MainPage extends Block{
+    constructor(props: any) {
+        super(props);
     }
 
-    const mainProps = {...props, ...store.user}
+    render() {
+        const LinkProfile = new Link({
+            link: "/",
+            text: "Профиль >",
+            className: "main__link-profile",
+        })
 
-    const mainPage = new MainPage(mainProps);
+        const InputFind = new Input({
+            className: "text-field-input__find",
+            type: "text",
+            placeholder: "Поиск",
+        })
 
-    return mainPage;
+        const ChatParentComponent = new ChatParent({
+            chatId: 0,
+            className: "main__right-area",
+        })
+
+        return compile(template, {
+            linkProfile: LinkProfile,
+            inputFind: InputFind,
+            chatParent: ChatParentComponent,
+            messageBoxes: []
+        });
+    }
 }

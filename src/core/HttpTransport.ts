@@ -1,3 +1,5 @@
+import queryStringify from "../utils/queryStringify";
+
 const METHODS = {
     GET: 'GET',
     POST: 'POST',
@@ -16,22 +18,7 @@ type Options = {
  * На входе: объект. Пример: {a: 1, b: 2, c: {d: 123}, k: [1, 2, 3]}
  * На выходе: строка. Пример: ?a=1&b=2&c=[object Object]&k=1,2,3
  */
-function queryStringify(data: any): string {
-    if (!data) return '';
-    // Можно делать трансформацию GET-параметров в отдельной функции
-    const dataArr = [];
-    let result = '';
-    for (const key of Object.keys(data)) {
-        if (Array.isArray(data[key]))
-            result = `${key}=${data[key].join(',')}`;
-        else if (typeof data[key] === 'object')
-            result = `${key}=[object Object]`;
-        else
-            result = `${key}=${data[key]}`;
-        dataArr.push(result);
-    }
-    return `?${dataArr.join('&')}`;
-}
+
 
 export class HTTPTransport {
     get = (url: string, options: Options = {}) => {
@@ -54,15 +41,18 @@ export class HTTPTransport {
         return new Promise((resolve, reject) => {
             const xhr = new XMLHttpRequest();
 
-            if (options.method !== 'GET')
+            if (options.method !== 'GET') {
                 xhr.open(options.method as string, url);
-            else
+            }
+            else {
                 xhr.open(options.method, url + data);
+            }
 
-            if (headers)
+            if (headers) {
                 Object.keys(headers).forEach((key) => {
                     xhr.setRequestHeader(key, headers[key]);
                 });
+            }
 
             xhr.onload = function () {
                 resolve(xhr);

@@ -1,9 +1,6 @@
-@color-inputbckg: rgb(220, 220, 220);
-@color-background-left: rgb(250, 250, 250);
-@color-background-right: rgb(255, 255, 255);
+@import "../../styles/variables";
 
 .main {
-
   &__body {
     display: flex;
     flex-direction: row;
@@ -23,8 +20,6 @@
     height: 80px;
     border-bottom-width: 0px;
     border-bottom-style: solid;
-  }
-  &__left-area-content {
   }
   &__right-area {
     display: flex;
@@ -66,7 +61,7 @@
     position: relative;
   }
 
-  .link-profile {
+  &__link-profile {
     display: flex;
     margin: 5px 5px;
     justify-content: right;
@@ -75,7 +70,7 @@
     font-size: 0.8rem;
   }
 
-  .link-profile:hover{
+  &__link-profile:hover{
     color: blue;
   }
 

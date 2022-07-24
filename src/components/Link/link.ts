@@ -1,5 +1,6 @@
 import Block from "../../core/block";
 import template from "./link.hbs"
+import compile from "../../utils/compile";
 
 interface LinkProps{
     link: string,
@@ -11,12 +12,12 @@ interface LinkProps{
     },
 }
 
-export class Link extends Block{
-    constructor(props: LinkProps){
-        super(props);
+export class Link extends Block<LinkProps>{
+    public constructor(props: LinkProps){
+        super('div', props);
     }
 
     render() {
-        return this.compile(template, {...this.props});
+        return compile(template, {...this.props});
     }
 }

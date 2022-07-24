@@ -1,5 +1,6 @@
 import Block from "../../core/block";
 import template from "./chatParent.hbs";
+import compile from "../../utils/compile";
 
 interface ChatParentProps{
     chatId: number,
@@ -9,18 +10,12 @@ interface ChatParentProps{
     }
 }
 
-export class ChatParent extends Block{
-    constructor(props: ChatParentProps){
-
-
-        super( {...props});
-    }
-
-    componentDidUpdate(oldProps: any, newProps: any): boolean {
-        return true;
+export class ChatParent extends Block<ChatParentProps>{
+    public constructor(props: ChatParentProps){
+        super( "div", {...props});
     }
 
     render() {
-        return this.compile(template, {...this.props});
+        return compile(template, {...this.props});
     }
 }

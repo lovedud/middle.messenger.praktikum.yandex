@@ -1,12 +1,22 @@
-import error from '../../components/error/error.hbs';
+import "./error.less"
+import Block from "../../core/block";
+import template from './error.hbs'
+import { Link } from "../../components/Link/link";
+import compile from "../../utils/compile";
 
-export default function error500() {
-	return error({
-		error: '500',
-		description: 'Мы уже фиксим',
-		link: {
-			linkText: 'Назад',
-			url: '/sign-up'
-		}
-	});
-};
+
+export default class Error500 extends Block<any>{
+	constructor() {
+		super('div');
+	}
+
+	render() {
+		return compile(template, {
+			title: "500",
+			message: "Мы уже фиксим",
+			link: new Link({
+				link: "/",
+				text: "Назад к чатам",
+			}),});
+	}
+}

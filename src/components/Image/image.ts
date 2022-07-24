@@ -9,8 +9,8 @@ interface ImageProps{
     }
 }
 
-export class Image extends Block{
-    constructor(props: ImageProps){
+export class Image extends Block<ImageProps>{
+    public constructor(props: ImageProps){
         super( props);
     }
 
