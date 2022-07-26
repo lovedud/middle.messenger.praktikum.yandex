@@ -1,6 +1,7 @@
 import "./messagebox.less";
 import Block from "../../core/block";
 import template from "./messagebox.hbs";
+import compile from "../../utils/compile";
 
 interface MessageBoxProps{
     isActive: string,
@@ -17,10 +18,10 @@ interface MessageBoxProps{
 
 export class MessageBox extends Block<MessageBoxProps>{
     public constructor(props: MessageBoxProps){
-        super( props);
+        super('div', props);
     }
 
     render() {
-        return this.compile(template, {...this.props});
+        return compile(template, {...this.props});
     }
 }

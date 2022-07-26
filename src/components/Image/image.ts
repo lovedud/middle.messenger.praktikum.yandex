@@ -1,5 +1,6 @@
 import Block from "../../core/block";
 import template from "./image.hbs"
+import compile from "../../utils/compile";
 
 interface ImageProps{
     src: string;
@@ -11,10 +12,10 @@ interface ImageProps{
 
 export class Image extends Block<ImageProps>{
     public constructor(props: ImageProps){
-        super( props);
+        super('div', props);
     }
 
     render() {
-        return this.compile(template, {...this.props});
+        return compile(template, {...this.props});
     }
 }

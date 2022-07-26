@@ -5,13 +5,14 @@ import {Button} from "../../components/Button/button";
 import {Input} from "../../components/Input/input";
 import {Link} from "../../components/Link/link";
 import compile from "../../utils/compile";
+import {regExpInput} from "../../utils/regExps";
 
 
 export default class Profile extends Block{
     constructor() {
         super('div', {
             value: '',
-            re:  /[^a-zA-ZА-Яа-я0-9]+/g,
+            regExp:  regExpInput.regExp,
             error: false,
             login: '',
             password: '',
@@ -25,8 +26,8 @@ export default class Profile extends Block{
     onBlur(e) {
         console.log('onBlur')
         const errorLogin = document.getElementById('error');
-        if (e.target.value.match(this.props.re)) {
-            errorLogin.textContent = 'A filename cannot contain any of the following characters: \/:*?"<>|';
+        if (e.target.value.match(this.props.regExp)) {
+            errorLogin.textContent = regExpInput.regMassage;
         } else {
             errorLogin.textContent = '';
         }
@@ -35,8 +36,8 @@ export default class Profile extends Block{
     onFocus(e) {
         console.log('onFocus')
         const errorLogin = document.getElementById('error');
-        if (e.target.value.match(this.props.re)) {
-            errorLogin.textContent = 'A filename cannot contain any of the following characters: \/:*?"<>|';
+        if (e.target.value.match(this.props.regExp)) {
+            errorLogin.textContent = regExpInput.regMassage;
         } else {
             errorLogin.textContent = '';
         }
@@ -47,14 +48,14 @@ export default class Profile extends Block{
             label: 'Изменить данные',
             className: 'profile__button',
             events: {
-                click: (e: any) => this.onSubmit(e),
+                click: (e: Event) => this.onSubmit(e),
             },
         });
         const ChangePassword = new Button({
             label: 'Изменить пароль',
             className: 'profile__button',
             events: {
-                click: (e: any) => this.onSubmit(e),
+                click: (e: Event) => this.onSubmit(e),
             },
         });
 
@@ -65,8 +66,8 @@ export default class Profile extends Block{
             value: this.props.login,
             disabled: true,
             events: {
-                change: (e: any) => this.onBlur(e),
-                click: (e : any) => this.onFocus(e),
+                change: (e: Event) => this.onBlur(e),
+                click: (e : Event) => this.onFocus(e),
             }
         });
 
@@ -77,8 +78,8 @@ export default class Profile extends Block{
             value: this.props.psssword,
             disabled: true,
             events: {
-                change: (e: any) => this.onBlur(e),
-                click: (e : any) => this.onFocus(e),
+                change: (e: Event) => this.onBlur(e),
+                click: (e : Event) => this.onFocus(e),
             }
         });
 
@@ -89,8 +90,8 @@ export default class Profile extends Block{
             value: this.props.psssword_repeat,
             disabled: true,
             events: {
-                change: (e: any) => this.onBlur(e),
-                click: (e : any) => this.onFocus(e),
+                change: (e: Event) => this.onBlur(e),
+                click: (e : Event) => this.onFocus(e),
             }
         });
 
@@ -101,8 +102,8 @@ export default class Profile extends Block{
             value: this.props.first_name,
             disabled: true,
             events: {
-                change: (e: any) => this.onBlur(e),
-                click: (e : any) => this.onFocus(e),
+                change: (e: Event) => this.onBlur(e),
+                click: (e : Event) => this.onFocus(e),
             }
         })
 
@@ -113,8 +114,8 @@ export default class Profile extends Block{
             value: this.props.last_name,
             disabled: true,
             events: {
-                change: (e: any) => this.onBlur(e),
-                click: (e : any) => this.onFocus(e),
+                change: (e: Event) => this.onBlur(e),
+                click: (e : Event) => this.onFocus(e),
             }
         })
 
@@ -125,8 +126,8 @@ export default class Profile extends Block{
             value: this.props.email,
             disabled: true,
             events: {
-                change: (e: any) => this.onBlur(e),
-                click: (e : any) => this.onFocus(e),
+                change: (e: Event) => this.onBlur(e),
+                click: (e : Event) => this.onFocus(e),
             }
         })
 

@@ -7,16 +7,17 @@ import compile from "../../utils/compile";
 
 export default class Error500 extends Block<any>{
 	constructor() {
-		super('div');
-	}
-
-	render() {
-		return compile(template, {
+		super('div', {
 			title: "500",
 			message: "Мы уже фиксим",
 			link: new Link({
 				link: "/",
 				text: "Назад к чатам",
-			}),});
+			})
+		});
+	}
+
+	render() {
+		return compile(template, this.props)
 	}
 }
