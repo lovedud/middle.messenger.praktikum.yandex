@@ -1,0 +1,17 @@
+<div class="login__body">
+    <p class="login__header">{{title}}</p>
+    {{#if image}}
+        <img class="box-container__image" src="{{image}}"/>
+    {{/if}}
+    <div>
+        {{{loginInput}}}
+        <div id="errorLogin"></div>
+        {{{passwordInput}}}
+    </div>
+    <div>
+        {{{button}}}
+    </div>
+    <div>
+        {{{link}}}
+    </div>
+</div>

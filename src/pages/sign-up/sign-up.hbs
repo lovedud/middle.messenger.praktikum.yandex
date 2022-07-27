@@ -1,0 +1,21 @@
+<div class="signup__body">
+    <p class="signup__header">{{title}}</p>
+    {{#if image}}
+        <img class="signup-container__image" src="{{image}}"/>
+    {{/if}}
+    <div class="signup-inputs-container">
+        {{{loginInput}}}
+        {{{passwordInput}}}
+        {{{passwordRepeatInput}}}
+        {{{firstNameInput}}}
+        {{{lastNameInput}}}
+        {{{emailInput}}}
+    </div>
+    <div id="error"></div>
+    <div>
+        {{{button}}}
+    </div>
+    <div>
+        {{{link}}}
+    </div>
+</div>
