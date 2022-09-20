@@ -5,7 +5,7 @@ import { Link } from "../../components/Link/link";
 import compile from "../../utils/compile";
 
 
-export default class Error500 extends Block<any>{
+class Error500 extends Block<any>{
 	constructor() {
 		super('div', {
 			title: "500",
@@ -21,3 +21,7 @@ export default class Error500 extends Block<any>{
 		return compile(template, this.props)
 	}
 }
+
+const error500 = new Error500();
+
+export default error500;

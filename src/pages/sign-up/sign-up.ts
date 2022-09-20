@@ -7,7 +7,7 @@ import {Link} from "../../components/Link/link";
 import compile from "../../utils/compile";
 import {regExpInput} from "../../utils/regExps";
 
-export default class SignUp extends Block{
+class SignUp extends Block{
 	constructor() {
 		super('div', {
 			value: '',
@@ -144,4 +144,8 @@ export default class SignUp extends Block{
 		});
 	}
 }
+
+const signUp = new SignUp();
+
+export default signUp;
 

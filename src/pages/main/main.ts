@@ -3,12 +3,14 @@ import template from './main.hbs'
 import Block from "../../core/block";
 import compile from "../../utils/compile";
 import {Link} from "../../components/Link/link";
-import {Input} from "../../components/Input/input";
 import {ChatParent} from "../../components/ChatParent/chatParent";
+import {CustomInput} from "../../components/CustomInput/customInput";
 
-export default class MainPage extends Block{
-    constructor(props: any) {
-        super(props);
+class MainPage extends Block{
+    constructor() {
+        super('div', {
+
+        });
     }
 
     render() {
@@ -18,7 +20,7 @@ export default class MainPage extends Block{
             className: "main__link-profile",
         })
 
-        const InputFind = new Input({
+        const InputFind = new CustomInput({
             className: "text-field-input__find",
             type: "text",
             placeholder: "Поиск",
@@ -33,7 +35,16 @@ export default class MainPage extends Block{
             linkProfile: LinkProfile,
             inputFind: InputFind,
             chatParent: ChatParentComponent,
-            messageBoxes: []
+            messageBoxes: [
+                {
+                    userName: "Ivan Ivanov",
+                    numUnreadMessages: 5
+                }
+            ]
         });
     }
 }
+
+const mainPage = new MainPage();
+
+export default mainPage;

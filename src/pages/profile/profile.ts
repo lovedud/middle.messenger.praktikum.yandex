@@ -8,7 +8,7 @@ import compile from "../../utils/compile";
 import {regExpInput} from "../../utils/regExps";
 
 
-export default class Profile extends Block{
+class Profile extends Block{
     constructor() {
         super('div', {
             value: '',
@@ -64,7 +64,7 @@ export default class Profile extends Block{
             name: 'login',
             type: 'text',
             value: this.props.login,
-            disabled: true,
+            disabled: 'disabled',
             events: {
                 change: (e: Event) => this.onBlur(e),
                 click: (e : Event) => this.onFocus(e),
@@ -76,7 +76,7 @@ export default class Profile extends Block{
             name: 'psssword',
             type: 'password',
             value: this.props.psssword,
-            disabled: true,
+            disabled: 'disabled',
             events: {
                 change: (e: Event) => this.onBlur(e),
                 click: (e : Event) => this.onFocus(e),
@@ -88,7 +88,7 @@ export default class Profile extends Block{
             name: 'psssword_repeat',
             type: 'text',
             value: this.props.psssword_repeat,
-            disabled: true,
+            disabled: 'disabled',
             events: {
                 change: (e: Event) => this.onBlur(e),
                 click: (e : Event) => this.onFocus(e),
@@ -100,7 +100,7 @@ export default class Profile extends Block{
             name: 'first_name',
             type: 'text',
             value: this.props.first_name,
-            disabled: true,
+            disabled: 'disabled',
             events: {
                 change: (e: Event) => this.onBlur(e),
                 click: (e : Event) => this.onFocus(e),
@@ -112,7 +112,7 @@ export default class Profile extends Block{
             name: 'last_name',
             type: 'text',
             value: this.props.last_name,
-            disabled: true,
+            disabled: 'disabled',
             events: {
                 change: (e: Event) => this.onBlur(e),
                 click: (e : Event) => this.onFocus(e),
@@ -124,7 +124,7 @@ export default class Profile extends Block{
             name: 'email',
             type: 'text',
             value: this.props.email,
-            disabled: true,
+            disabled: 'disabled',
             events: {
                 change: (e: Event) => this.onBlur(e),
                 click: (e : Event) => this.onFocus(e),
@@ -151,3 +151,7 @@ export default class Profile extends Block{
         });
     }
 }
+
+const profile = new Profile();
+
+export default profile;

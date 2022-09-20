@@ -7,7 +7,7 @@ import compile from "../../utils/compile";
 import {Link} from "../../components/Link/link";
 import {regExpInput} from "../../utils/regExps";
 
-export default class Login extends Block {
+class Login extends Block {
     constructor() {
         super('div', {
             value: '',
@@ -65,7 +65,6 @@ export default class Login extends Block {
             name: 'login',
             type: 'text',
             value: this.props.login,
-            disabled: false,
             events: {
                 change: (e: Event) => this.onBlur(e),
                 click: (e: Event) => this.onFocus(e),
@@ -77,7 +76,6 @@ export default class Login extends Block {
             name: 'psssword',
             type: 'password',
             value: this.props.psssword,
-            disabled: false,
         });
 
         const LinkSignUp = new Link({
@@ -95,3 +93,7 @@ export default class Login extends Block {
         });
     }
 }
+
+const login = new Login();
+
+export default login;

@@ -3,7 +3,7 @@ import {Link} from "../../components/Link/link";
 import Block from "../../core/block";
 import compile from "../../utils/compile";
 
-export default class Error404 extends Block {
+class Error404 extends Block {
 	constructor() {
 		super('div', {
 			title: "404",
@@ -19,3 +19,7 @@ export default class Error404 extends Block {
 		return compile(template, this.props);
 	}
 };
+
+const error404 = new Error404();
+
+export default error404;
