@@ -5,6 +5,7 @@ import compile from "../../utils/compile";
 import {Link} from "../../components/Link/link";
 import {ChatParent} from "../../components/ChatParent/chatParent";
 import {CustomInput} from "../../components/CustomInput/customInput";
+import {MessageBox} from "../../components/MessageBox/messagebox";
 
 class MainPage extends Block{
     constructor() {
@@ -31,16 +32,18 @@ class MainPage extends Block{
             className: "main__right-area",
         })
 
+        const MessageBoxComponent = new MessageBox({
+            isActive: 'true',
+            chatId: 1,
+            userName: 'Ivan',
+            numUnreadMessages: 6,
+        })
+
         return compile(template, {
             linkProfile: LinkProfile,
             inputFind: InputFind,
             chatParent: ChatParentComponent,
-            messageBoxes: [
-                {
-                    userName: "Ivan Ivanov",
-                    numUnreadMessages: 5
-                }
-            ]
+            messageBoxes: MessageBoxComponent,
         });
     }
 }

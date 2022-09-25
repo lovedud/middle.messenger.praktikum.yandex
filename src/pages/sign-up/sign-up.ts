@@ -6,6 +6,9 @@ import {Button} from "../../components/Button/button";
 import {Link} from "../../components/Link/link";
 import compile from "../../utils/compile";
 import {regExpInput} from "../../utils/regExps";
+import AuthController from "../../controllers/auth";
+
+const authController = new AuthController()
 
 class SignUp extends Block{
 	constructor() {
@@ -25,7 +28,7 @@ class SignUp extends Block{
 		for (let element of formElement) {
 			formData[element.name] = element.value
 		}
-		console.log('Input Value', formData);
+		authController.signUp(formData);
 		this.onFocus(e)
 		this.onBlur(e)
 	}
@@ -34,7 +37,7 @@ class SignUp extends Block{
 		console.log('onBlur')
 		const errorLogin = document.getElementById('error');
 		if (e.target.value.match(this.props.regExp)) {
-			errorLogin.textContent = regExpInput.regMassage;
+			errorLogin.textContent = '';
 		} else {
 			errorLogin.textContent = '';
 		}
@@ -44,7 +47,7 @@ class SignUp extends Block{
 		console.log('onFocus')
 		const errorLogin = document.getElementById('error');
 		if (e.target.value.match(this.props.regExp)) {
-			errorLogin.textContent = regExpInput.regMassage;
+			errorLogin.textContent = '';
 		} else {
 			errorLogin.textContent = '';
 		}
@@ -72,7 +75,7 @@ class SignUp extends Block{
 
 		const PasswordInput = new Input({
 			placeholder: 'Пароль',
-			name: 'psssword',
+			name: 'password',
 			type: 'password',
 			value: this.props.password,
 			events: {
@@ -105,7 +108,7 @@ class SignUp extends Block{
 
 		const LastNameInput = new Input( {
 			placeholder: 'Last Name',
-			name: 'last_name',
+			name: 'second_name',
 			type: 'text',
 			value: this.props.last_name,
 			events: {

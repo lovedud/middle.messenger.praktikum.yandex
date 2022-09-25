@@ -9,14 +9,15 @@ import {regExpInput} from "../../utils/regExps";
 
 
 class Profile extends Block{
-    constructor() {
-        super('div', {
+    constructor(props) {
+        /*super('div', {
             value: '',
             regExp:  regExpInput.regExp,
             error: false,
             login: '',
             password: '',
-        });
+        });*/
+        super('div', { ...props })
     }
 
     onSubmit = (e) => {
@@ -73,7 +74,7 @@ class Profile extends Block{
 
         const PasswordInput = new Input({
             placeholder: 'Пароль',
-            name: 'psssword',
+            name: 'password',
             type: 'password',
             value: this.props.psssword,
             disabled: 'disabled',
@@ -85,7 +86,7 @@ class Profile extends Block{
 
         const PasswordRepeatInput = new Input({
             placeholder: 'Пароль',
-            name: 'psssword_repeat',
+            name: 'password_repeat',
             type: 'text',
             value: this.props.psssword_repeat,
             disabled: 'disabled',
@@ -153,5 +154,3 @@ class Profile extends Block{
 }
 
 const profile = new Profile();
-
-export default profile;

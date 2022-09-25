@@ -6,6 +6,9 @@ import { Button } from "../../components/Button/button";
 import compile from "../../utils/compile";
 import {Link} from "../../components/Link/link";
 import {regExpInput} from "../../utils/regExps";
+import AuthController from "../../controllers/auth";
+
+const authController = new AuthController()
 
 class Login extends Block {
     constructor() {
@@ -25,7 +28,7 @@ class Login extends Block {
         for (let element of formElement) {
             formData[element.name] = element.value
         }
-        console.log('Input Value', formData);
+        authController.signIn(formData);
         this.onFocus(e)
         this.onBlur(e)
     }
@@ -73,7 +76,7 @@ class Login extends Block {
 
         const PasswordInput = new Input({
             placeholder: 'Пароль',
-            name: 'psssword',
+            name: 'password',
             type: 'password',
             value: this.props.psssword,
         });
