@@ -9,15 +9,14 @@ import {regExpInput} from "../../utils/regExps";
 
 
 class Profile extends Block{
-    constructor(props) {
-        /*super('div', {
+    constructor() {
+        super('div', {
             value: '',
             regExp:  regExpInput.regExp,
             error: false,
             login: '',
             password: '',
-        });*/
-        super('div', { ...props })
+        });
     }
 
     onSubmit = (e) => {
@@ -154,3 +153,5 @@ class Profile extends Block{
 }
 
 const profile = new Profile();
+
+export default profile;
