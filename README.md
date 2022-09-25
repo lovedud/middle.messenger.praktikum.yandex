@@ -1,4 +1,4 @@
-https://github.com/lovedud/middle.messenger.praktikum.yandex/pull/8
+https://github.com/lovedud/middle.messenger.praktikum.yandex/pull/9
 
 Команды
 
