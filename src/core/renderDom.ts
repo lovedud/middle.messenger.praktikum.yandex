@@ -1,19 +1,10 @@
 import Block from "./block";
 
-export function renderDom(rootSelector: string, component: Block) : HTMLElement{
+export function renderDom(query: string, block: Block) : HTMLElement{
+    const root = document.querySelector(query)
 
-    const root: HTMLElement | null = document.getElementById(rootSelector)
-
-    if (!root){
-        throw new Error ("нет Root!")
+    if (!root) {
+        throw new Error('Root not found')
     }
-
-    component?.dispatchComponentDidMoun();
-
-    root.innerHTML = '';
-
-    root.append(component?.getContent() as Node);
-
-    return root;
-
+    root.append(block.getContent());
 }

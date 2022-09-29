@@ -1,8 +1,8 @@
 import Block from "../../core/block";
-import template from "./input.hbs"
+import template from "./customInput.hbs"
 import compile from "../../utils/compile";
 
-interface InputProps{
+interface CustomInputProps{
     name?: string,
     className?: string,
     type?: string,
@@ -17,8 +17,8 @@ interface InputProps{
     }
 }
 
-export class Input extends Block<InputProps>{
-    public constructor(props: InputProps){
+export class CustomInput extends Block<CustomInputProps>{
+    public constructor(props: CustomInputProps){
         super( 'div', props);
     }
 

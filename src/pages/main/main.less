@@ -30,9 +30,11 @@
     padding: 5px;
   }
   &__right-area-empty {
+    width: 80vw;
+    height: 100vh;
     display: flex;
     justify-content: center;
-    text-align: center;
+    align-items: center;
     color: gray;
   }
   &__right-area-header {
@@ -59,6 +61,7 @@
 
   .left-area-header__text-field{
     position: relative;
+    margin-top: 1em;
   }
 
   &__link-profile {
@@ -68,6 +71,7 @@
     text-align: right;
     color: gray;
     font-size: 0.8rem;
+    text-decoration: none;
   }
 
   &__link-profile:hover{
@@ -92,6 +96,7 @@
     left: calc(50% - 45px);
     height: 50%;
     transition: transform .2s ease-in-out;
+    color: #212529;
   }
 
   .main__left-area-header .text-field-input__find:focus~.text-field-image__find,

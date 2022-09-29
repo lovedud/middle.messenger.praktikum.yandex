@@ -1,74 +1,72 @@
-import queryStringify from "../utils/queryStringify";
+import { RequestOptions } from '../api/types'
 
-const METHODS = {
-    GET: 'GET',
-    POST: 'POST',
-    PUT: 'PUT',
-    DELETE: 'DELETE',
-};
-
-type Options = {
-    headers?: any,
-    data?: string,
-    method?: string,
-    timeout?: number,
+enum Methods {
+    GET = 'GET',
+    POST = 'POST',
+    PUT = 'PUT',
+    DELETE = 'DELETE'
 }
 
-/**
- * На входе: объект. Пример: {a: 1, b: 2, c: {d: 123}, k: [1, 2, 3]}
- * На выходе: строка. Пример: ?a=1&b=2&c=[object Object]&k=1,2,3
- */
+const queryStringify = (data: Record<string, any>): string => {
+    return '?' + Object.keys(data).map((key) => key + '=' + data[key]).join('&')
+}
 
+export default class HttpTransport {
 
-export class HTTPTransport {
-    get = (url: string, options: Options = {}) => {
-        let data = '';
-        if (options.data)
-            data = queryStringify(options.data);
+    get<T>(url: string, options: RequestOptions = {}): Promise<T> {
+        const params = queryStringify(options.data ?? {})
+        return this._request(url + params, { ...options, method: Methods.GET }, options.timeout)
+    }
 
-        return this.request(url, { ...options, method: METHODS.GET, data }, options.timeout);
-    };
+    sendMethod<T>(method: Methods, url: string, options: RequestOptions = {}): Promise<T> {
+        return this._request(url, { ...options, method }, options.timeout)
+    }
 
-    put = (url: string, options: any = {}) => this.request(url, {...options, method: METHODS.PUT}, options.timeout);
+    put = this.sendMethod.bind(this, Methods.PUT)
+    post = this.sendMethod.bind(this, Methods.POST)
+    delete = this.sendMethod.bind(this, Methods.DELETE)
 
-    post = (url: string, options: any = {}) => this.request(url, {...options, method: METHODS.POST}, options.timeout);
-
-    delete = (url: string, options: any = {}) => this.request(url, {...options, method: METHODS.DELETE}, options.timeout);
-
-    request(url: string, options: Options, timeout: number = 5000): Promise<XMLHttpRequest> {
-        const { method, data, headers } = options;
+    private _request = <T>(url: string, options: RequestOptions = {}, timeout = 4000): Promise<T> => {
+        const { headers = {}, method, credentials, body } = options
 
         return new Promise((resolve, reject) => {
-            const xhr = new XMLHttpRequest();
-
-            if (options.method !== 'GET') {
-                xhr.open(options.method as string, url);
-            }
-            else {
-                xhr.open(options.method, url + data);
+            if (!method) {
+                reject(`Не валидный метод: ${method}?`)
+                return
             }
 
-            if (headers) {
+            const xhr = new XMLHttpRequest()
+            xhr.open(method, url)
+
+            if (!(body instanceof FormData)) {
+                xhr.setRequestHeader('content-type', 'application/json')
+            }
+
+            if (Object.keys(headers).length) {
                 Object.keys(headers).forEach((key) => {
-                    xhr.setRequestHeader(key, headers[key]);
-                });
+                    xhr.setRequestHeader(key, headers[key])
+                })
             }
 
-            xhr.onload = function () {
-                resolve(xhr);
-            };
+            xhr.withCredentials = true
+            if (credentials !== undefined) {
+                xhr.withCredentials = credentials
+            }
 
-            xhr.onabort = reject;
-            xhr.onerror = reject;
-            xhr.ontimeout = reject;
+            xhr.responseType = 'json'
+            xhr.onload = () => resolve(xhr as any)
+            xhr.onabort = () => reject(new Error('some error'))
+            xhr.onerror = () => reject(new Error('some error'))
+            xhr.timeout = timeout
+            xhr.ontimeout = reject
 
-            xhr.timeout = timeout;
-
-            if (method === METHODS.GET || !data) {
-                xhr.send();
+            if (method === Methods.GET || !body) {
+                xhr.send()
             } else {
-                xhr.send(JSON.stringify(data));
+                body instanceof FormData
+                    ? xhr.send(body)
+                    : xhr.send(JSON.stringify(body))
             }
-        });
+        })
     }
 }
