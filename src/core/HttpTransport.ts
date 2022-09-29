@@ -26,7 +26,7 @@ export default class HttpTransport {
     post = this.sendMethod.bind(this, Methods.POST)
     delete = this.sendMethod.bind(this, Methods.DELETE)
 
-    _request = <T>(url: string, options: RequestOptions = {}, timeout = 4000): Promise<T> => {
+    private _request = <T>(url: string, options: RequestOptions = {}, timeout = 4000): Promise<T> => {
         const { headers = {}, method, credentials, body } = options
 
         return new Promise((resolve, reject) => {

@@ -84,7 +84,7 @@ class ChatsController {
                 if (status === 200) await this.getChats()
             }
         } catch (error) {
-            console.log(error)
+            throw new Error(error);
         }
     }
 
@@ -98,7 +98,9 @@ class ChatsController {
                     chatId: +chatId
                 })
 
-                if (status === 200) await this.getChats()
+                if (status === 200) {
+                    await this.getChats()
+                }
             }
         } catch (error) {
             console.log(error)

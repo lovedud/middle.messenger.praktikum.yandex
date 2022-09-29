@@ -28,13 +28,11 @@ class Auth extends BaseAPI {
     }
 
     signIn(data: SignInData): Promise<BaseResponse> {
-        const options: RequestOptions<SignInData> = { body: data }
-        return this.http.post(`${this.baseUrl}/auth/signin`, options)
+        return this.http.post(`${this.baseUrl}/auth/signin`, { body: data })
     }
 
     signUp(data: SignUpData): Promise<BaseResponse> {
-        const options: RequestOptions<SignUpData> = { body: data }
-        return this.http.post(`${this.baseUrl}/auth/signup`, options)
+        return this.http.post(`${this.baseUrl}/auth/signup`, { body: data })
     }
 
     getUserInfo(): Promise<BaseResponse<UserProfileDataExtend>> {

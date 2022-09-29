@@ -4,7 +4,7 @@ import template from "./messagebox.hbs";
 import compile from "../../utils/compile";
 
 interface MessageBoxProps{
-    isActive: string,
+    isActive: boolean,
     chatId: number,
     break?: Block,
     className?: string,

@@ -10,7 +10,7 @@ class BaseAPI {
 
     constructor() {
         this.http = new HTTPTransport()
-        this.baseUrl = BASE_URL
+        this.baseUrl = 'https://ya-praktikum.tech/api/v2'
     }
 }
 

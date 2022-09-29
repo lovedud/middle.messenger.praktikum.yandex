@@ -1,5 +1,5 @@
 import {  UserProfileDataExtend } from '../api/userApi'
-import { set } from '../utils/common'
+import { set } from '../utils/set'
 import EventBus from "./event-bus";
 
 export type HTMLElementEvent<T extends HTMLElement> = Event & {
